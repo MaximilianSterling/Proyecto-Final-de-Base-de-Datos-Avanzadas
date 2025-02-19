@@ -5,12 +5,12 @@
 package DAO;
 
 import conexion.IConexionBD;
+import entidades.Cita;
 import excepciones.PersistenciaException;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -29,15 +29,15 @@ public class CitaDAO implements ICitaDAO {
     private static final Logger logger = Logger.getLogger(CitaDAO.class.getName());
 
     @Override
-    public boolean agendarCita(Timestamp fechaHora, int id_usuario_paciente, int id_usuario_medico) throws PersistenciaException {
+    public boolean agendarCita(Cita cita) throws PersistenciaException {
         String consultaSQL = "CALL AGREGAR_CITA(?, ?, ?)";
         try (Connection con = this.conexion.crearConexion(); CallableStatement cb = con.prepareCall(consultaSQL)) {
 
-            cb.setTimestamp(1, fechaHora);
-            cb.setInt(2, id_usuario_paciente);
-            cb.setInt(3, id_usuario_medico);
+            cb.setTimestamp(1, cita.getFecha_hora());
+            cb.setInt(2, cita.getPaciente().getUsuario().getId_usuario()); 
+            cb.setInt(3, cita.getMedico().getUsuario().getId_usuario());   
 
-            cb.executeUpdate();  // Ya no necesitamos almacenar el valor de filas afectadas
+            cb.executeUpdate();
 
             logger.info("Cita agendada con éxito.");
             return true;
@@ -46,7 +46,6 @@ public class CitaDAO implements ICitaDAO {
             logger.log(Level.SEVERE, "Error al agendar la cita", e);
             throw new PersistenciaException("Error al agendar cita", e);
         }
-
     }
 
 }

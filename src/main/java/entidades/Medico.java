@@ -4,6 +4,7 @@
  */
 package entidades;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,9 +23,13 @@ public class Medico {
     private List<Cita> citas;
     private List<Horario> horarios;
 
+    // Constructor vacío
     public Medico() {
+        this.citas = new ArrayList<>();  // Iniciar las listas de citas
+        this.horarios = new ArrayList<>(); // Iniciar las listas de horarios
     }
 
+    // Constructor con todos los parámetros
     public Medico(Usuario usuario, String nombre, String apellido_paterno, String apellido_materno, String estado, String especialidad, String cedula, List<Cita> citas, List<Horario> horarios) {
         this.usuario = usuario;
         this.nombre = nombre;
@@ -33,10 +38,11 @@ public class Medico {
         this.estado = estado;
         this.especialidad = especialidad;
         this.cedula = cedula;
-        this.citas = citas;
-        this.horarios = horarios;
+        this.citas = citas != null ? citas : new ArrayList<>();  
+        this.horarios = horarios != null ? horarios : new ArrayList<>();  
     }
 
+    // Constructor sin usuario
     public Medico(String nombre, String apellido_paterno, String apellido_materno, String estado, String especialidad, String cedula, List<Cita> citas, List<Horario> horarios) {
         this.nombre = nombre;
         this.apellido_paterno = apellido_paterno;
@@ -44,8 +50,8 @@ public class Medico {
         this.estado = estado;
         this.especialidad = especialidad;
         this.cedula = cedula;
-        this.citas = citas;
-        this.horarios = horarios;
+        this.citas = citas != null ? citas : new ArrayList<>();
+        this.horarios = horarios != null ? horarios : new ArrayList<>();
     }
 
     public Usuario getUsuario() {

@@ -5,6 +5,7 @@
 package entidades;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,6 +25,7 @@ public class Paciente {
     private List<Cita> citas;
 
     public Paciente() {
+        this.citas = new ArrayList<>();  
     }
 
     public Paciente(Usuario usuario, String nombre, String apellido_paterno, String apellido_materno, String telefono, LocalDate fecha_nacimiento, String correo_electronico, Direccion direccion, List<Cita> citas) {
@@ -35,7 +37,7 @@ public class Paciente {
         this.fecha_nacimiento = fecha_nacimiento;
         this.correo_electronico = correo_electronico;
         this.direccion = direccion;
-        this.citas = citas;
+        this.citas = citas != null ? citas : new ArrayList<>();  
     }
 
     public Paciente(String nombre, String apellido_paterno, String apellido_materno, String telefono, LocalDate fecha_nacimiento, String correo_electronico, Direccion direccion, List<Cita> citas) {
@@ -46,7 +48,7 @@ public class Paciente {
         this.fecha_nacimiento = fecha_nacimiento;
         this.correo_electronico = correo_electronico;
         this.direccion = direccion;
-        this.citas = citas;
+        this.citas = citas != null ? citas : new ArrayList<>();
     }
 
     public Usuario getUsuario() {

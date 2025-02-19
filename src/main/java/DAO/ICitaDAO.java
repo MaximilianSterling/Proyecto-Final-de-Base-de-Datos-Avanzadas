@@ -4,8 +4,8 @@
  */
 package DAO;
 
+import entidades.Cita;
 import excepciones.PersistenciaException;
-import java.sql.Timestamp;
 
 /**
  *
@@ -13,5 +13,5 @@ import java.sql.Timestamp;
  */
 public interface ICitaDAO {
     
-    public boolean agendarCita(Timestamp fechaHora, int idUsuarioPaciente, int idUsuarioMedico) throws PersistenciaException;
+    public boolean agendarCita(Cita cita) throws PersistenciaException;
 }
