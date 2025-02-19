@@ -8,6 +8,7 @@ package BO;
  *
  * @author Maximiliano
  */
-public class CitaSinCitaBO {
+public class CitaSinCitaBO 
+{
     
 }

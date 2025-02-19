@@ -8,6 +8,7 @@ package Mapper;
  *
  * @author Maximiliano
  */
-public class CitaMapper {
+public class CitaMapper 
+{
     
 }
