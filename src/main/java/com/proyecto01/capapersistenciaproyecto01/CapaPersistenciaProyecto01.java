@@ -45,7 +45,7 @@ public class CapaPersistenciaProyecto01 {
 //        }
         
         //Probando agendarCita() DAO
-       Direccion direccionPaciente = new Direccion("Centro", "Obregon", "Pitagoras");
+        Direccion direccionPaciente = new Direccion("Centro", "Obregon", "Pitagoras");
         
         Usuario usuarioPaciente = new Usuario(1,"karlacota", "karlita12");
         
@@ -55,7 +55,7 @@ public class CapaPersistenciaProyecto01 {
         
         Medico medico = new Medico(usuarioMedico, "Alicia", "Cano", "Arias", "Activo", "Cardiología", "123456", new ArrayList<>(), new ArrayList<>());
         
-        Cita cita = new Cita(Timestamp.valueOf("2025-08-18 10:00:00"), "Agendada", "Cita Agendada", paciente, medico);
+        Cita cita = new Cita(Timestamp.valueOf("2025-02-24 10:00:00"), "Agendada", "Cita Agendada", paciente, medico);
         
         CitaDAO citaDAO = new CitaDAO(conexionBD);
         
