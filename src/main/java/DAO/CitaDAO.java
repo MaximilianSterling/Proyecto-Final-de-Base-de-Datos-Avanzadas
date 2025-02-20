@@ -21,7 +21,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author norma alicia beltran martin
+ * @author norma 
  */
 public class CitaDAO implements ICitaDAO {
 
